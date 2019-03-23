@@ -16,7 +16,7 @@ CIRCLE_R3 = 0.98
 
 class SSHKBM(QObject):
 
-    def __init__(self):
+    def __init__(self, args):
         super().__init__()
         self.connection = None
         self.conn_params = {p: None for p in ('host', 'user', 'port', 'password')}
@@ -53,8 +53,16 @@ class SSHKBM(QObject):
         def new_evt(evt):
             self.mouse_cmd(evt.pos())
         self.mp.mousePressEvent = new_evt
+        # Fill in default values
+        self.ui.hostField.setText(args.get('host', ''))
+        self.ui.portField.setText(args.get('port', ''))
+        self.ui.userField.setText(args.get('user', ''))
+        self.ui.passwordField.setText(args.get('password', ''))
+        self.ui.displayField.setText(args.get('display', ''))
         # Finally, show the window
         self.window.show()
+        if args.get('connect', False):
+            self.click_connect()
         self.app.exec_()
 
     def on_connect(self, connect=True):
@@ -190,7 +198,16 @@ class SSHKBM(QObject):
         self.ui.typingField.setPlainText('')
 
 if __name__ == '__main__':
-    SSHKBM()
+    import argparse
+    parser = argparse.ArgumentParser(description='Send keyboard and mouse events over SSH')
+    parser.add_argument('--host', '-H', default='')
+    parser.add_argument('--port', '-P', default='22')
+    parser.add_argument('--user', '-u', default='')
+    parser.add_argument('--password', '-p', default='')
+    parser.add_argument('--display', '-d', default=':0')
+    parser.add_argument('--connect', '-c', action='store_true')
+    args = vars(parser.parse_args())
+    SSHKBM(args)
 
 
 
