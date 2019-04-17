@@ -99,14 +99,28 @@ CHARACTERS = {
     '’': 'rightsinglequotemark',
     '“': 'leftdoublequotemark',
     '”': 'rightdoublequotemark',
+    'Ccedilla': 'ccedilla',
     'Esc': 'Escape',
     'PgUp': 'Prior',
     'PgDown': 'Next',
     'Ins': 'Insert',
     'Del': 'Delete',
     'CapsLock': 'Caps_Lock',
+    'NumLock': 'Num_Lock',
+    'ScrollLock': 'Scroll_Lock',
     'Backspace': 'BackSpace',
-    'Backtab': 'Tab'
+    'Backtab': 'Tab',
+    'KP_+': 'KP_Add',
+    'KP_-': 'KP_Subtract',
+    'KP_*': 'KP_Multiply',
+    'KP_/': 'KP_Divide',
+    'KP_.': 'KP_Decimal',
+    'KP_,': 'KP_Separator',
+    'KP_Clear': 'KP_Begin',
+    'KP_PgUp': 'KP_Prior',
+    'KP_PgDown': 'KP_Next',
+    'KP_Ins': 'KP_Insert',
+    'KP_Del': 'KP_Delete'
 }
 CHARACTERS.update({c: c for c in __CONSTANT})
 

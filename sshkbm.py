@@ -133,13 +133,11 @@ class SSHKBM(QObject):
                 return
         else:
             name = key
-        if name in characters.CHARACTERS:
-            name = characters.CHARACTERS[name]
-        if len(name) == 1 or name == 'Ccedilla':
-            name = name.lower()
         k = []
         if self.ui.ignoreModifiersCheck.isChecked():
             modifiers = 0x0
+        if modifiers & Qt.KeypadModifier:
+            name = 'KP_' + name
         if self.ui.composeCheck.isChecked():
             k.append('Multi_key')
         if self.ui.ctrlCheck.isChecked() or (modifiers & Qt.ControlModifier):
@@ -152,6 +150,10 @@ class SSHKBM(QObject):
             k.append('Super')
         if self.ui.altGrCheck.isChecked():
             k.append('ISO_Level3_Shift')
+        if name in characters.CHARACTERS:
+            name = characters.CHARACTERS[name]
+        if len(name) == 1:
+            name = name.lower()
         k.append(name)
         key_str = '+'.join(k)
         self.ui.lastKeyTitleLabel.setText('Last key sent:')
