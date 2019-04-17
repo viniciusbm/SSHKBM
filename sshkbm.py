@@ -42,8 +42,8 @@ class SSHKBM(QObject):
         key_buttons = [b + 'Btn' for b in
             [d + 'Arrow' for d in ['up', 'down', 'left', 'right']] +
             ['f' + str(n) for n in range(1, 12)] +
-            ['tab', 'caps', 'ins', 'del', 'prtscr', 'pgup', 'pgdn', 'home', 'end',
-             'esc',
+            ['tab', 'caps', 'num', 'scroll',
+             'ins', 'del', 'prtscr', 'pgup', 'pgdn', 'home', 'end', 'esc',
              'volUp', 'volDown', 'mute', 'play', 'stop', 'prev', 'next', 'space']]
         btn_clk = lambda b: lambda: self.keyboard_key_pressed(\
                                 QObject.property(getattr(self.ui, b), 'Key'), 0)

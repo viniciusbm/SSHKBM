@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>646</width>
-    <height>627</height>
+    <height>643</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -47,7 +47,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="connectionTab">
          <attribute name="title">
@@ -568,33 +568,6 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="capsBtn">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <pointsize>10</pointsize>
-                         </font>
-                        </property>
-                        <property name="cursor">
-                         <cursorShape>OpenHandCursor</cursorShape>
-                        </property>
-                        <property name="focusPolicy">
-                         <enum>Qt::NoFocus</enum>
-                        </property>
-                        <property name="text">
-                         <string>Caps</string>
-                        </property>
-                        <property name="Key" stdset="0">
-                         <string>Caps_Lock</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
                        <widget class="QPushButton" name="insBtn">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
@@ -805,6 +778,77 @@
                       <property name="sizeConstraint">
                        <enum>QLayout::SetMinimumSize</enum>
                       </property>
+                      <item>
+                       <widget class="QPushButton" name="capsBtn">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                          <underline>false</underline>
+                         </font>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>OpenHandCursor</cursorShape>
+                        </property>
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
+                        </property>
+                        <property name="text">
+                         <string>Caps</string>
+                        </property>
+                        <property name="Key" stdset="0">
+                         <string>Caps_Lock</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="numBtn">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <underline>false</underline>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Num</string>
+                        </property>
+                        <property name="Key" stdset="0">
+                         <string>Num_Lock</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="scrollBtn">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <underline>false</underline>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Scroll</string>
+                        </property>
+                        <property name="Key" stdset="0">
+                         <string>Scroll_Lock</string>
+                        </property>
+                       </widget>
+                      </item>
                       <item>
                        <widget class="QPushButton" name="muteBtn">
                         <property name="sizePolicy">
