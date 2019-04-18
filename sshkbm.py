@@ -6,9 +6,10 @@ from fabric import Connection
 from math import atan, copysign, pi
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut
 from PyQt5.QtCore import QObject, pyqtSlot, QEvent, Qt
-from PyQt5.QtGui import QKeySequence
+from PyQt5.QtGui import QKeySequence, QFont
 from ui.sshkbm_window import Ui_SSHKBMWindow
 from util import characters
+from lockkeystate import LockKeyState
 
 CIRCLE_R1 = 0.21
 CIRCLE_R2 = 0.51
@@ -73,6 +74,8 @@ class SSHKBM(QObject):
             e.setEnabled(not connect)
         self.ui.statusbar.showMessage('Connected.' if connect else 'Disconnected.')
         self.ui.connectButton.setText('Connect' if not connect else 'Disconnect')
+        if connect:
+            LockKeyState(self.connection, onchange=self.update_lock_state)
 
     def on_disconnect(self):
         self.on_connect(False)
@@ -85,6 +88,13 @@ class SSHKBM(QObject):
             'user': none_if_empty(str(self.ui.userField.text())),
             'password': none_if_empty(str(self.ui.passwordField.text()))
         })
+
+    def update_lock_state(self, keys):
+        for k in ['Caps', 'Num', 'Scroll']:
+            font = QFont()
+            font.setItalic(keys[k])
+            getattr(self.ui, k.lower() + 'Btn').setFont(font)
+
 
     @pyqtSlot()
     def click_connect(self):
