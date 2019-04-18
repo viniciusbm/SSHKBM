@@ -495,8 +495,6 @@
                         <property name="font">
                          <font>
                           <pointsize>10</pointsize>
-                          <weight>50</weight>
-                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="cursor">
@@ -786,13 +784,6 @@
                           <verstretch>0</verstretch>
                          </sizepolicy>
                         </property>
-                        <property name="font">
-                         <font>
-                          <weight>50</weight>
-                          <bold>false</bold>
-                          <underline>false</underline>
-                         </font>
-                        </property>
                         <property name="cursor">
                          <cursorShape>OpenHandCursor</cursorShape>
                         </property>
@@ -815,10 +806,8 @@
                           <verstretch>0</verstretch>
                          </sizepolicy>
                         </property>
-                        <property name="font">
-                         <font>
-                          <underline>false</underline>
-                         </font>
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
                          <string>Num</string>
@@ -836,10 +825,8 @@
                           <verstretch>0</verstretch>
                          </sizepolicy>
                         </property>
-                        <property name="font">
-                         <font>
-                          <underline>false</underline>
-                         </font>
+                        <property name="focusPolicy">
+                         <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
                          <string>Scroll</string>

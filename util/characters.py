@@ -65,7 +65,7 @@ CHARACTERS = {
     '¾': 'threequarters',
     '¿': 'questiondown',
     'Æ': 'AE',
-    'Ç': 'Ccedilla',
+    'Ç': 'ccedilla',
     'Ð': 'ETH',
     '×': 'multiply',
     'Ø': 'Oslash',
@@ -99,7 +99,6 @@ CHARACTERS = {
     '’': 'rightsinglequotemark',
     '“': 'leftdoublequotemark',
     '”': 'rightdoublequotemark',
-    'Ccedilla': 'ccedilla',
     'Esc': 'Escape',
     'PgUp': 'Prior',
     'PgDown': 'Next',
@@ -120,7 +119,12 @@ CHARACTERS = {
     'KP_PgUp': 'KP_Prior',
     'KP_PgDown': 'KP_Next',
     'KP_Ins': 'KP_Insert',
-    'KP_Del': 'KP_Delete'
+    'KP_Del': 'KP_Delete',
+    'Media Play': 'XF86AudioPlay',
+    'Media Previous': 'XF86AudioPrev',
+    'Media Next': 'XF86AudioNext',
+    'Media Stop': 'XF86AudioStop',
+    'Search': 'XF86Search'
 }
 CHARACTERS.update({c: c for c in __CONSTANT})
 

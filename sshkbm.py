@@ -3,6 +3,7 @@
 import shlex
 import sys
 from fabric import Connection
+from string import digits
 from math import atan, copysign, pi
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QShortcut
 from PyQt5.QtCore import QObject, pyqtSlot, QEvent, Qt
@@ -90,6 +91,7 @@ class SSHKBM(QObject):
         })
 
     def update_lock_state(self, keys):
+        self.lock_keys = keys
         for k in ['Caps', 'Num', 'Scroll']:
             font = QFont()
             font.setItalic(keys[k])
@@ -170,7 +172,12 @@ class SSHKBM(QObject):
         self.ui.lastKeyLabel.setText(key_str)
         display = str(self.ui.displayField.text())
         cmd = 'DISPLAY=' + shlex.quote(display) + ' '
-        cmd += 'xdotool key ' + shlex.quote(key_str)
+        if self.lock_keys['Num'] and \
+                ((key_str[-1] in digits and key_str[:-1].endswith('KP_')) \
+                or key_str.endswith('KP_Separator')):
+            cmd += 'xdotool key Num_Lock ' + shlex.quote(key_str) + ' Num_Lock'
+        else:
+            cmd += 'xdotool key ' + shlex.quote(key_str)
         self.connection.run(cmd)
 
     def mouse_cmd(self, pos):
